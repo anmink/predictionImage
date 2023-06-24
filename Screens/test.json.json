@@ -1,0 +1,62 @@
+[
+  {
+    "dataId": { "id": 383 },
+    "dtype": "float32",
+    "id": 222,
+    "isDisposedInternal": false,
+    "kept": false,
+    "rankType": "2",
+    "scopeId": 5,
+    "shape": [1, 7],
+    "size": 7,
+    "strides": [7]
+  },
+  {
+    "dataId": { "id": 359 },
+    "dtype": "float32",
+    "id": 208,
+    "isDisposedInternal": false,
+    "kept": false,
+    "rankType": "2",
+    "scopeId": 5,
+    "shape": [1, 4],
+    "size": 4,
+    "strides": [4]
+  },
+  {
+    "dataId": { "id": 335 },
+    "dtype": "float32",
+    "id": 194,
+    "isDisposedInternal": false,
+    "kept": false,
+    "rankType": "2",
+    "scopeId": 5,
+    "shape": [1, 5],
+    "size": 5,
+    "strides": [5]
+  },
+  {
+    "dataId": { "id": 311 },
+    "dtype": "float32",
+    "id": 180,
+    "isDisposedInternal": false,
+    "kept": false,
+    "rankType": "2",
+    "scopeId": 5,
+    "shape": [1, 4],
+    "size": 4,
+    "strides": [4]
+  },
+  {
+    "dataId": { "id": 407 },
+    "dtype": "float32",
+    "id": 236,
+    "isDisposedInternal": false,
+    "kept": false,
+    "rankType": "2",
+    "scopeId": 5,
+    "shape": [1, 4],
+    "size": 4,
+    "strides": [4]
+  }
+]

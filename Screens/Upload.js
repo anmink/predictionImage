@@ -17,7 +17,7 @@ export default function Upload({ navigation }) {
   const [hasCameraPermission, setHasCameraPermission] = useState()
   const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState()
   const [photo, setPhoto] = useState()
-  const [modelLoaded, setModelLoaded] = useState()
+  const [userImage, setUserImage] = useState()
 
   useEffect(() => {
     ;(async () => {
@@ -58,23 +58,30 @@ export default function Upload({ navigation }) {
     }
 
     let savePhoto = () => {
-      MediaLibrary.saveToLibraryAsync(photo.uri).then(() => {
-        setPhoto(undefined)
+      /* MediaLibrary.saveToLibraryAsync(photo.uri).then(() => {
+        //setPhoto(undefined)
+      }) */
+      console.log(photo.uri)
+      navigation.navigate('Prediction', {
+        image: photo,
       })
-      navigation.navigate('Prediction')
     }
 
     return (
       <SafeAreaView style={styles.container}>
         <Image
           style={styles.preview}
-          source={{ uri: 'data:image/jpg;base64,' + photo.base64 }}
+          source={{ uri: 'data:image/png;base64,' + photo.base64 }}
         />
         <Button title="Share" onPress={sharePic} />
         {hasMediaLibraryPermission ? (
           <Button title="Save" onPress={savePhoto} />
         ) : undefined}
         <Button title="Discard" onPress={() => setPhoto(undefined)} />
+        <Button
+          title="Go to Prediction"
+          onPress={() => navigation.navigate('Prediction')}
+        />
       </SafeAreaView>
     )
   }
