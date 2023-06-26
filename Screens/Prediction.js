@@ -26,6 +26,10 @@ import itsafuckingimage from '../assets/09.png'
 export default function Prediction({ route, navigation }) {
   const [modelLoaded, setModelLoaded] = useState(false)
   const [modelData, setModelData] = useState()
+  const [article, setArticle] = useState()
+  const [color, setColor] = useState()
+  const [season, setSeason] = useState()
+  const [stil, setStil] = useState()
   const { image } = route.params
 
   useEffect(() => {
@@ -79,65 +83,42 @@ export default function Prediction({ route, navigation }) {
       console.log('prediction finished, waiting for output', predictions)
 
       const articleTypeLabels = [
-        'label1',
-        'label2',
-        'label3',
-        'label4',
-        'label5',
-        'label6',
-        'label7',
-      ]
-      const genderLabels = [
-        'label1',
-        'label2',
-        'label3',
-        'label4',
-        'label5',
-        'label6',
-        'label7',
+        'Casual Shoes',
+        'Other',
+        'Shirts',
+        'Tshirts',
+        'Watches',
       ]
       const baseColourLabels = [
-        'label1',
-        'label2',
-        'label3',
-        'label4',
-        'label5',
-        'label6',
-        'label7',
+        'Black',
+        'Blue',
+        'Brown',
+        'Green',
+        'Grey',
+        'Other',
+        'Pink',
+        'Red',
+        'White',
       ]
-      const seasonLabels = [
-        'label1',
-        'label2',
-        'label3',
-        'label4',
-        'label5',
-        'label6',
-        'label7',
-      ]
-      const usageLabels = [
-        'label1',
-        'label2',
-        'label3',
-        'label4',
-        'label5',
-        'label6',
-        'label7',
-      ]
+      const seasonLabels = ['Fall', 'Spring', 'Summer', 'Winter']
+      const usageLabels = ['Casual', 'Ethnic', 'Formal', 'Other', 'Sports']
 
       const articleTypeIndex = tf.argMax(predictions[0], 1).dataSync()[0]
-      const genderIndex = tf.argMax(predictions[1], 1).dataSync()[0]
       const baseColourIndex = tf.argMax(predictions[2], 1).dataSync()[0]
       const seasonIndex = tf.argMax(predictions[3], 1).dataSync()[0]
       const usageIndex = tf.argMax(predictions[4], 1).dataSync()[0]
 
       const articleType = articleTypeLabels[articleTypeIndex]
-      const gender = genderLabels[genderIndex]
       const baseColour = baseColourLabels[baseColourIndex]
       const season = seasonLabels[seasonIndex]
       const usage = usageLabels[usageIndex]
 
+      setArticle(articleType)
+      setColor(baseColour)
+      setSeason(season)
+      setStil(usage)
+
       console.log('Article Type:', articleType)
-      console.log('Gender:', gender)
       console.log('Base Colour:', baseColour)
       console.log('Season:', season)
       console.log('Usage:', usage)
@@ -165,6 +146,10 @@ export default function Prediction({ route, navigation }) {
         }}
         source={{ uri: image.uri }}
       />
+      <Text>{article}</Text>
+      <Text>{color}</Text>
+      <Text>{stil}</Text>
+      <Text>{season}</Text>
     </View>
   )
 }
